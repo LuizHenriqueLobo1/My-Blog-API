@@ -1,11 +1,24 @@
 package br.ifba.edu.myblog.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+@Entity(name="posts")
 public class Post {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String titulo;
 	private String texto;
+	@ManyToOne
 	private Usuario usuario;
+	@Enumerated(EnumType.STRING)
 	private Categoria categoria;
 	
 	public Post(Long id, String titulo, String texto, Usuario usuario, Categoria categoria) {
