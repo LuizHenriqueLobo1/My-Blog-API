@@ -6,9 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.ifba.edu.myblog.models.Post;
-
 import br.ifba.edu.myblog.repositories.PostRepository;
+import br.ifba.edu.myblog.dtos.PostDto;
 
 @RestController
 public class PostController {
@@ -17,7 +16,7 @@ public class PostController {
 	private PostRepository repository;
 	
 	@RequestMapping("/posts")
-	public List<Post> listPost() {
-		return this.repository.findAll();
+	public List<PostDto> listPost() {
+		return PostDto.converte(this.repository.findAll());
 	}
 }
