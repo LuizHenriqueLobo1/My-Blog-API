@@ -1,11 +1,9 @@
-INSERT INTO USUARIOS(nome, login, senha) VALUES('Aluno',
-'aluno@email.com', '123456');
+INSERT INTO USUARIOS(NOME, LOGIN, SENHA) VALUES
+('Jack', 'jack@email.com', '123'),
+('Abigail', 'abigail@email.com', '456'),
+('John', 'john@email.com', '789');
 
-INSERT INTO USUARIOS(nome, login, senha) VALUES('Manoel',
-'manoelnetom@gmail.com', '123456');
-
-INSERT INTO POSTS(titulo, texto, usuario_id, categoria) VALUES('Dúvida',
-'Erro ao criar projeto', 1, 'EDUCACAO');
-
-INSERT INTO POSTS(titulo, texto, usuario_id, categoria) VALUES('Pesquisa
-Eleitoral', 'Divulgada nova pesquisa', 2, 'POLITICA');
+INSERT INTO POSTS(TITULO, TEXTO, CATEGORIA, USUARIO_ID) VALUES
+('Projeto de Software', 'Para iniciar um novo projeto...', 'EDUCACAO', 1),
+('Pesquisa Eleitoral', 'Nova pesquisa revela quê...', 'POLITICA', 2),
+('Notícias Brasileirão', 'Hoje temos um novo líder no campeonato...', 'ESPORTE', 3);
