@@ -1,30 +1,33 @@
 package br.ifba.edu.myblog.dtos;
 
-import java.util.List;
-
 import br.ifba.edu.myblog.models.Usuario;
+import br.ifba.edu.myblog.repositories.UsuarioRepository;
 
-import java.util.stream.Collectors;
-
-public class UsuarioDto {
+public class UsuarioForm {
 
 	private Long id;
 	private String nome;
 	private String login;
+	private String senha;
 	
-	public UsuarioDto(Usuario usuario) {
+	public UsuarioForm(Usuario usuario) {
 		this.id    = usuario.getId();
 		this.nome  = usuario.getNome();
 		this.login = usuario.getLogin();
 	}
 	
-	public UsuarioDto() {
-	}
-	
-	public static List<UsuarioDto> converte(List<Usuario> usuarios) {
-		return usuarios.stream().map(usuario -> new UsuarioDto(usuario)).collect(Collectors.toList());
+	public UsuarioForm() {
 	}
 
+	public Usuario atualiza(Long id, UsuarioRepository repository) {
+		Usuario usuario = new Usuario();
+		usuario.setId(this.id);
+		usuario.setNome(this.nome);
+		usuario.setLogin(this.login);
+		usuario.setSenha(this.senha);
+		return usuario;
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -47,5 +50,13 @@ public class UsuarioDto {
 
 	public void setLogin(String login) {
 		this.login = login;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 }
